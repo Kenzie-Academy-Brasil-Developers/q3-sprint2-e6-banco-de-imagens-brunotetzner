@@ -16,8 +16,6 @@ ALLOWED_EXTENSIONS = os.getenv("ALLOWED_EXTENSIONS")
 
 app.config['MAX_CONTENT_LENGTH'] = int(MAX_CONTENT_LENGTH)
 
-
-
 if not os.path.isdir(FILES_DIRECTORY):
     os.mkdir(FILES_DIRECTORY)
     for item in ALLOWED_EXTENSIONS.split(" "):
@@ -46,6 +44,4 @@ def dowload_files(file_name):
 
 @app.get("/download-zip/query_params")
 def dowload_zip_file():
-    nome = request.args.get("file_name")
-    compress = request.args.get("compress_tax")
-    return func_download_zip_file(nome, compress)
+    return func_download_zip_file()
