@@ -3,8 +3,10 @@ import os
 import zipfile
 
 FILES_DIRECTORY = os.getenv("FILES_DIRECTORY")
-type_files = os.listdir(f"{FILES_DIRECTORY}")
 
+
+if "type_files" in os.listdir('/tmp'):
+    type_files = os.listdir(f"{FILES_DIRECTORY}")
 
 
 def func_upload_product():
