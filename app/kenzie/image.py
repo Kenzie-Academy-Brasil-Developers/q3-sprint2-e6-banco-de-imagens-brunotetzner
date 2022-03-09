@@ -32,7 +32,7 @@ def func_upload_product():
 
 def func_get_extension_files(file_name):
     if not file_name in type_files:
-          return  {"Error": f"O formato '{file_name}' não é suportado. Por favor, tente outro"}, 415
+          return  {"Error": f"O formato '{file_name}' não é suportado. Por favor, tente outro"}, 404
 
     files =os.listdir(f'{FILES_DIRECTORY}/{file_name}')
     return {"data": files}
@@ -69,8 +69,8 @@ def func_download_file(file_name):
 
 def func_download_zip_file():
   
-  file_extension = request.args.get('file_type')
-  comprehension_rate = int(request.args.get("compress_tax"))
+  file_extension = request.args.get('file_extension')
+  comprehension_rate = int(request.args.get("compression_ratio"))
 
   if comprehension_rate > 9 or comprehension_rate<0:
       return {'message': f"A Taxa de compressão com valor {comprehension_rate} é inválida. Informe um valor entre 0 e 9"}, 404

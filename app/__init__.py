@@ -42,6 +42,6 @@ def dowload_files(file_name):
     return func_download_file(file_name)
 
 
-@app.get("/download-zip/query_params")
+@app.get("/download-zip")
 def dowload_zip_file():
     return func_download_zip_file()
